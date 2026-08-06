@@ -16,7 +16,7 @@
 
 ---
 
-## 📌 Overview
+##  Overview
 
 **UJ Advisor** is a hybrid **agentic Retrieval-Augmented Generation (RAG)** framework built to solve a very real, very painful problem at the **University of Jeddah**: academic advising data is scattered across disconnected sectors — student affairs, admissions and registration, faculty records, internship listings — forcing advisors to manually stitch together a student's academic picture before they can even start advising.
 
@@ -77,7 +77,7 @@ Autocorrect ──▶ LLM Query Rewriting (context-aware) ──▶ Updated Quer
                   (chat history + structured state)
 ```
 
-### 1️⃣ Tool-Augmented Agent (the brain)
+### 1️ Tool-Augmented Agent (the brain)
 
 The control layer. Four internal components:
 
@@ -92,7 +92,7 @@ Memory is two-layered:
 - **Chat-history memory** — recent turns, used to rewrite follow-up questions into standalone queries.
 - **Structured conversation-state memory** — active topic, last route, student ID/name, advisor name, course key, previous SQL/RAG outputs — critical because Arabic advising follow-ups routinely omit identifiers ("and does *he* need training?").
 
-### 2️⃣ RAG Agent — Institutional Knowledge Retrieval
+### 2️ RAG Agent — Institutional Knowledge Retrieval
 
 - **Router-aware retrieval**: starts in the collections the Router suggested; expands to all collections if evidence is weak.
 - **Hybrid retrieval**: dense semantic search (embeddings) + **BM25 lexical search**, fused via **Reciprocal Rank Fusion**.
@@ -101,7 +101,7 @@ Memory is two-layered:
 - If the query is still ambiguous with no strong evidence → the system **asks a clarifying question** instead of guessing.
 - Final generation via **GPT-4o-mini**, constrained to cite only from retrieved evidence.
 
-### 3️⃣ SQL Agent — Controlled Structured-Data Access
+### 3️ SQL Agent — Controlled Structured-Data Access
 
 Deliberately **does not generate free-form SQL**. Instead:
 
@@ -125,7 +125,7 @@ Deliberately **does not generate free-form SQL**. Instead:
 
 </details>
 
-### 4️⃣ Classification Agent — Predictive Evidence
+### 4️ Classification Agent — Predictive Evidence
 
 Two **pre-trained models**, invoked as tools (not retrained at inference time), triggered only when the Router detects a predictive/diagnostic intent:
 
@@ -175,7 +175,7 @@ Collected from: PDFs, HTML pages, scanned images (OCR), surveys, manual data ent
 | Model (Classification) Decision Accuracy | **0.88** |
 | Exact Decision Match (all components agree) | **0.84** |
 
-📌 Errors concentrate almost entirely in the **hybrid** category (queries requiring both SQL + RAG) — confirming that coordinating multiple evidence sources is the hardest routing case, not any single path.
+ Errors concentrate almost entirely in the **hybrid** category (queries requiring both SQL + RAG) — confirming that coordinating multiple evidence sources is the hardest routing case, not any single path.
 
 ### 2. Retrieval Layer Evaluation
 
@@ -245,7 +245,7 @@ High faithfulness (0.89) confirms low hallucination — answers stay grounded in
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -349,7 +349,7 @@ Developed by Artificial Intelligence students, **College of Computer Science and
 
 ---
 
-## 📖 Citation
+##  Citation
 
 If you reference this work, please cite:
 
